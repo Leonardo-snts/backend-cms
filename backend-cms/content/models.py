@@ -11,3 +11,17 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+    
+class Image(models.Model):
+    title = models.CharField(max_length=200)
+    image = models.ImageField(upload_to='images/')
+    
+    def __str__(self):
+        return self.title
+
+class Document(models.Model):
+    title = models.CharField(max_length=200)
+    document = models.FileField(upload_to='documents/')
+    
+    def __str__(self):
+        return self.title
