@@ -28,8 +28,8 @@ class Document(models.Model):
 
 class Page(models.Model):
     title = models.CharField(max_length=200)
-    content = models.TextField()
     slug = models.SlugField(unique=True)
+    content = models.TextField()
 
     def __str__(self):
         return self.title
@@ -39,5 +39,5 @@ class Tab(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
 
-    def __str__(self):
-        return self.title
+    # def __str__(self):
+    #     return self.title
