@@ -1,6 +1,6 @@
 # content/serializers.py
 from rest_framework import serializers
-from .models import Article, Image, Document
+from .models import Article, Image, Document, Tab, Page
 
 class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,3 +26,15 @@ class DocumentSerializer(serializers.ModelSerializer):
 
     def get_document_url(self, obj):
         return self.context['request'].build_absolute_uri(obj.document.url)
+
+
+class PageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Page
+        fields = '__all__'
+        #fields = ['id', 'title', 'content', 'slug']
+
+class TabSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Tab
+        fields = '__all__'

@@ -25,3 +25,19 @@ class Document(models.Model):
     
     def __str__(self):
         return self.title
+
+class Page(models.Model):
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+    slug = models.SlugField(unique=True)
+
+    def __str__(self):
+        return self.title
+
+class Tab(models.Model):
+    page = models.ForeignKey(Page, related_name='tabs', on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.title
